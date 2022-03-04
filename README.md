@@ -1,4 +1,4 @@
-# RHE-mc
+# RHEmc-coeff
 Randomized Heritability Estimation for Multi-variance Components
 
 
@@ -14,8 +14,8 @@ make
 ## How to install :
 
 ```
-git clone https://github.com/alipazokit/RHE-mc.git
-cd RHE-mc
+git clone https://github.com/alipazokit/RHEmc-coeff.git
+cd RHEmc-coeff
 mkdir build
 cd build/
 cmake ..
@@ -23,14 +23,9 @@ make
 ```
 
 # Documentation for RHE-mc
-An executable file named RHEmc will be in build folder after the installation steps. Run RHE-mc as follows:
- ```
- ./RHEmc <command_line arguments>
+An executable file named RHEmc_mem will be in build folder after the installation steps. Run RHEmc_mem as follows:
 ```
-To estimate dominance heritability and additve heritability jointly run :
-
-```
- ./RHEmc_dom <command_line arguments>
+ ./RHEmc_mem <command_line arguments>
 ```
 
 ## Parameters
@@ -43,15 +38,18 @@ annotation (-annot): The path of annotation file.
 num_vec (-k) : The number of random vectors (10 is recommended). 
 num_block (-jn): The number of jackknife blocks. (100 or 22 are recommended). The higher number of jackknife blocks the higher memory usage.
 out_put (-o): The path of output file.
+coefficients of statistics (-coef): The path of coefficients of variance components used to define statistics.
 
 
 ```
 ## File formats
 ```
+coefficient: It has L rows (L=number of statistics) and K columns (K=number of components(annotations)). The value in row i and column j correspond to coefficient of j-th variance in i-th statistic. 
 Genotype : It must be in bed format.
 Phenotype: It must have a header in the following format: FID IID name_of_phenotype
 Covariate: It must have a header in the following format: FID IID name_of_cov_1 name_of_cov_2  . . .   name_of_cov_n
 Annotation: It has M rows (M=number  of SNPs) and K columns (K=number of annotations). If SNP i belongs to annotation j, then there is  "1" in row i and column j. Otherwise there is "0". (delimiter is " ")
+
 
 1) Number and order of individuals must be same in phenotype, gentype and covariate files.
 2) Number and order of SNPs must be same in bim file and annotation file.
@@ -70,7 +68,7 @@ chmod +x test.sh
 
 ## Citation
 ```
-Pazokitoroudi, A., Wu, Y., Burch, K.S. et al. Efficient variance components analysis across millions of genomes. Nat Commun 11, 4020 (2020). https://doi.org/10.1038/s41467-020-17576-9
+
 ```
 
 
