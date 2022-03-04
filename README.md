@@ -1,4 +1,4 @@
-# RHE-mc
+# RHEmc-coeff
 Randomized Heritability Estimation for Multi-variance Components
 
 
@@ -14,8 +14,8 @@ make
 ## How to install :
 
 ```
-git clone https://github.com/alipazokit/RHE-mc.git
-cd RHE-mc
+git clone https://github.com/alipazokit/RHEmc-coeff.git
+cd RHEmc-coeff
 mkdir build
 cd build/
 cmake ..
