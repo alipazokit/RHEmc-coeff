@@ -22,7 +22,7 @@ cmake ..
 make
 ```
 
-# Documentation for RHE-mc
+# Documentation for RHEmc-coeff
 An executable file named RHEmc_mem will be in build folder after the installation steps. Run RHEmc_mem as follows:
 ```
  ./RHEmc_mem <command_line arguments>
