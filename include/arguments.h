@@ -215,7 +215,7 @@ void parse_args(int argc, char const *argv[]){
 
 	if(argc<3){
 
-	 cout<<"Correct Usage :"<<endl<<" -g  <genotype file> -p <phenotype file> -c <covariate file>  -k <number of random vector> -jn <number of jackknife blocks>    -o <output file> -annot <annot file> "<<endl;
+	 cout<<"Correct Usage :"<<endl<<" -g  <genotype file> -p <phenotype file> -c <covariate file>  -k <number of random vector> -jn <number of jackknife blocks>    -o <output file> -annot <annot file>  -coef <coef file>"<<endl;
                 
 		exit(-1);
 	}
@@ -252,12 +252,11 @@ void parse_args(int argc, char const *argv[]){
 			}
 			else if(strcmp(argv[i],"-o")==0){
 				command_line_opts.OUTPUT_FILE_PATH = string(argv[i+1]);
-				got_genotype_file=true;
 				i++;
 			}
 			 else if(strcmp(argv[i],"-annot")==0){
                                 command_line_opts.Annot_PATH= string(argv[i+1]);
-                                got_genotype_file=true;
+                                got_annot_file=true;
                                 i++;
                         }
 			 else if(strcmp(argv[i],"-coeff")==0){
@@ -268,6 +267,7 @@ void parse_args(int argc, char const *argv[]){
 		
 			else if(strcmp(argv[i], "-p")==0){
 				command_line_opts.PHENOTYPE_FILE_PATH =string(argv[i+1]); 
+				 got_pheno_file=true;
 				i++; 
 			}
 			else if(strcmp(argv[i],"-c")==0){
@@ -323,7 +323,7 @@ void parse_args(int argc, char const *argv[]){
 			else{
 
 				cout<<"Not Enough or Invalid arguments"<<endl;
-                                cout<<"Correct Usage is "<<argv[0]<<" -g  <genotype file> -p <phenotype file> -c <covariate file>  -k <number of random vector> -jn <number of jackknife blocks>    -o <output file> -annot <annot file>"<<endl;
+                                cout<<"Correct Usage is "<<argv[0]<<" -g  <genotype file> -p <phenotype file> -c <covariate file>  -k <number of random vector> -jn <number of jackknife blocks>    -o <output file> -annot <annot file> -coef <coef file>"<<endl;
                                 exit(-1);
 			}
 		}
@@ -348,7 +348,7 @@ void parse_args(int argc, char const *argv[]){
 	
 	 if(got_genotype_file==false || got_pheno_file==false || got_annot_file==false){
                 cout<<"file missing"<<endl;
-                cout<<"Correct Usage is "<<argv[0]<<"-g  <genotype file> -p <phenotype file> -c <covariate file>  -k <number of random vector> -jn <number of jackknife blocks>    -o <output file> -annot <annot file>"<<endl;
+                cout<<"Correct Usage is "<<argv[0]<<"-g  <genotype file> -p <phenotype file> -c <covariate file>  -k <number of random vector> -jn <number of jackknife blocks>    -o <output file> -annot <annot file> -coef <coef file>"<<endl;
                 exit(-1);
         }
         
