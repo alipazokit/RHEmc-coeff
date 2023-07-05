@@ -24,9 +24,6 @@ struct options{
 	int num_of_evec ;
 
 	int jack_number;
-	 bool got_genotype_file=false;
-        bool got_pheno_file=false;
-        bool got_annot_file=false;
 
 	bool getaccuracy ;
 	bool debugmode;
@@ -206,6 +203,8 @@ void parse_args(int argc, char const *argv[]){
 	command_line_opts.debugmode=false;
 	command_line_opts.OUTPUT_PATH = "";
 	bool got_genotype_file=false;
+        bool got_pheno_file=false;
+        bool got_annot_file=false;
 	command_line_opts.l=2;
 	command_line_opts.accelerated_em=0;
 	command_line_opts.memory_efficient=false;
